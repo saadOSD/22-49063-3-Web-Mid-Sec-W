@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Professional Registration Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="styles.css"> 
+</head>
+
+<body>
+  <div class="container">
+    <h1>Registration</h1>
+    
+    <div id="registration-form">
+      
+     <h3>1. Personal Details</h3>
+      <div class="field-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required placeholder="Enter your full legal name">
+      </div>
+      <div class="field-group">
+        <label for="username">Username </label> 
+        <input type="text" id="username" name="username" placeholder="Choose a unique username">
+      </div>
+      <div class="field-group">
+        <label for="dob">Date of Birth (Optional)</label>
+        <input type="date" id="dob" name="dob">
+      </div>
+
+      <h3>2. Contact Information</h3>
+      <div class="field-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="name@example.com">
+      </div>
+      <div class="field-group">
+        <label for="phone">Phone Number (Optional)</label>
+        <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890">
+      </div>
+
+      <h3>3. Security Information</h3>
+      <div class="field-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required placeholder="Minimum 8 characters">
+      </div>
+      <div class="field-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+      </div>
+      
+    </div>
+
+    <hr>
+    
+    <h3>4. Optional Fields</h3>
+    
+    <div class="add-field-container">
+      <select id="fieldType">
+        <option value="">-- Select Optional Field to Add --</option>
+        <option value="gender">Gender</option>
+        <option value="address">Address</option>
+        <option value="country">Country</option>
+        <option value="securityQ">Security Question & Answer</option>
+        <option value="profilePic">Profile Picture</option>
+        <option value="userRole">User Role (e.g., Student/Teacher)</option>
+      </select>
+      <button onclick="addField()">+ ADD</button>
+    </div>
+
+    <div id="dynamic-fields"></div>
+    <hr>
+
+    <div class="save-button-container">
+      <button onclick="saveData()">Save Registration</button>
+    </div>
+
+  </div>
+</body>
+
+</html>
