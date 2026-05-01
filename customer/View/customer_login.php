@@ -68,7 +68,7 @@ unset($_SESSION["loggingError"]);
             padding: 12px;
             border: 1px solid #ddd;
             border-radius: 6px;
-            box-sizing: border-box; /* ইনপুট বক্সের সাইজ ঠিক রাখে */
+            box-sizing: border-box; 
             transition: border-color 0.3s;
         }
         .form-group input:focus {

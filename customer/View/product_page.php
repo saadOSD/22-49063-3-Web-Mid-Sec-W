@@ -43,7 +43,7 @@ if(!isset($_SESSION["isLoggedIn"]) || $_SESSION["role"] !== "customer"){
     <a href="cart.php">View Cart</a> | <a href="../Controller/logout.php">Logout</a>
 
     <script>
-        // DOM Manipulation for live calculation
+        
         function calculate(id) {
             let price = document.getElementById('price_'+id).innerText;
             let qty = document.getElementById('qty_'+id).value;
@@ -52,7 +52,7 @@ if(!isset($_SESSION["isLoggedIn"]) || $_SESSION["role"] !== "customer"){
 
         function addToCart(name, price, id) {
             let qty = document.getElementById('qty_'+id).value;
-            // এখানে AJAX বা সিম্পল ফর্ম সাবমিট ব্যবহার করা যায়
+           
             window.location.href = `../Controller/addToCart.php?name=${name}&price=${price}&qty=${qty}`;
         }
     </script>

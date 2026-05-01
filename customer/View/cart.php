@@ -99,7 +99,7 @@ $cart = $_SESSION['cart'] ?? [];
             text-decoration: underline;
         }
 
-        /* Empty Cart Styling */
+        
         .empty-msg {
             text-align: center;
             padding: 40px;

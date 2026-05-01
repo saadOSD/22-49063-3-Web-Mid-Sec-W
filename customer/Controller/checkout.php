@@ -2,7 +2,6 @@
 include "../Model/DatabaseConnection.php"; 
 session_start();
 
-// ১. কার্ট খালি থাকলে প্রোডাক্ট পেজে ফেরত পাঠানো
 if(!isset($_SESSION["cart"]) || empty($_SESSION["cart"])) {
     header("Location: ../View/product_page.php");
     exit();
@@ -14,7 +13,7 @@ $customer_id = $_SESSION['id'];
 
 $success = true;
 
-// ২. ডাটাবেসে অর্ডার সেভ করার লজিক
+
 foreach($_SESSION['cart'] as $item) {
     $result = $db->checkout($conn, $customer_id, $item['name'], $item['qty'], $item['total']);
     if(!$result) {
@@ -23,8 +22,8 @@ foreach($_SESSION['cart'] as $item) {
 }
 
 if($success) {
-    unset($_SESSION['cart']); // অর্ডার সফল হলে কার্ট খালি করা
-    // এখানে রিডাইরেক্ট না করে আমরা নিচে HTML/CSS দিয়ে একটি সাকসেস মেসেজ দেখাব
+    unset($_SESSION['cart']); 
+    
 } else {
     die("Something went wrong during checkout!");
 }
@@ -77,7 +76,7 @@ if($success) {
         }
         .btn:hover { background-color: #2980b9; }
         
-        /* স্পিনার এনিমেশন */
+        
         .loader {
             border: 4px solid #f3f3f3;
             border-top: 4px solid #3498db;
@@ -104,7 +103,7 @@ if($success) {
         </div>
 
         <script>
-            // ৩ সেকেন্ড পর অটোমেটিক রেকর্ড পেজে নিয়ে যাবে
+            
             setTimeout(function() {
                 window.location.href = "../View/record.php?status=success";
             }, 3000);

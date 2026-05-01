@@ -2,18 +2,18 @@
 session_start();
 include "../Model/DatabaseConnection.php";
 
-// ইউজার লগইন করা আছে কি না এবং সে কাস্টমার কি না তা চেক করা
+
 if(!isset($_SESSION["isLoggedIn"]) || $_SESSION["role"] !== "customer"){
     header("Location: customer_login.php");
     exit();
 }
 
-$customer_id = $_SESSION["id"]; // লগইন করা কাস্টমারের আইডি সেশন থেকে নেওয়া
+$customer_id = $_SESSION["id"]; 
 
 $db = new DatabaseConnection();
-$conn = $db->openConnection(); // ডাটাবেস কানেকশন ওপেন করা
+$conn = $db->openConnection(); 
 
-// মডেল থেকে কাস্টমারের ট্রানজ্যাকশন হিস্ট্রি নিয়ে আসা
+
 $result = $db->getPurchaseHistory($conn, $customer_id); 
 ?>
 
@@ -53,7 +53,7 @@ $result = $db->getPurchaseHistory($conn, $customer_id);
         </thead>
         <tbody>
             <?php 
-            // ডেটাবেস থেকে পাওয়া রেজাল্ট লুপের মাধ্যমে টেবিল রো হিসেবে দেখানো
+            
             if($result && mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_assoc($result)){
                     echo "<tr>
